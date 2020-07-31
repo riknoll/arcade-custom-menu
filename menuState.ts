@@ -5,10 +5,12 @@ namespace blockMenu {
     export class _BlockMenuState {
         menu: MenuSprite;
         handlers: ((option: string, index: number) => void)[];
+        controlsEnabled: boolean;
 
         constructor() {
             this.menu = new MenuSprite();
             this.handlers = [];
+            this.controlsEnabled = true;
         }
 
         addHandler(handler: ((option: string, index: number) => void)) {
@@ -53,6 +55,8 @@ namespace blockMenu {
         control.runInParallel(function() {
             while (true) {
                 controller.pauseUntilAnyButtonIsPressed();
+                if (!state.controlsEnabled) continue;
+
                 if (state.menu.style === MenuStyle.Grid) {
                     debounce = 150
                 }

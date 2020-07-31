@@ -32,7 +32,7 @@ namespace blockMenu {
     //% blockId="block_menu_show_menu"
     //% block="show $style menu at $location with options $options"
     //% options.shadow="lists_create_with"
-    //% options.defl="string"
+    //% options.defl="text"
     export function showMenu(options: string[], style: MenuStyle, location: MenuLocation) {
         const state = _getState();
 
@@ -55,8 +55,6 @@ namespace blockMenu {
     //% foreground.defl=15
     //% background.shadow=colorindexpicker
     //% background.defl=1
-    //% cursor.shadow=colorindexpicker
-    //% curosr.defl=3
     export function setColors(foreground: number, background: number) {
         const state = _getState();
         state.menu.setColors(foreground, background, background, foreground);
@@ -85,6 +83,7 @@ namespace blockMenu {
 
     //% blockId="block_menu_on_menu_option_selected"
     //% block="on menu option selected $option $index"
+    //% draggableParameters="reporter"
     export function onMenuOptionSelected(handler: (option: string, index: number) => void) {
         const state = _getState();
         state.addHandler(handler);
@@ -108,5 +107,6 @@ namespace blockMenu {
     //% block="set controls enabled $enabled"
     export function setControlsEnabled(enabled: boolean) {
         const state = _getState();
+        state.controlsEnabled = enabled;
     }
 }
