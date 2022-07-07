@@ -1,7 +1,7 @@
 {
     "name": "block-menu",
     "version": "0.0.1",
-    "description": "",
+    "description": "DEPRECATED! Use riknoll/arcade-mini-menu instead",
     "dependencies": {
         "device": "*"
     },
